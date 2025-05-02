@@ -1,88 +1,92 @@
 # Restaurant Coupon Browser App
 
-A React Native mobile application for browsing restaurant coupons built with TypeScript and TailwindCSS. This app integrates with a REST API to display coupons and their details.
+A React Native mobile application for browsing restaurant coupons, built with Expo Router and TypeScript.
 
 ## Features
 
-- **Main Screen**: A scrollable list of restaurant coupons showing:
-   - Coupon name
-   - Discount value
-   - Background image with gradient overlay for text readability
+- Browse available restaurant coupons
+- View detailed coupon information
+- Clean, responsive UI with TailwindCSS
+- Smooth transitions and loading states
+- Optimized image loading
 
-- **Detail Screen**: Detailed view of a selected coupon with:
-   - Complete coupon information (name, description, discount, validity dates, terms)
-   - Coupon image
-   - Visual indication of active/inactive status
+## Technical Stack
 
-- **API Integration**:
-   - Uses public endpoints from the API specification
-   - Supports pagination for the coupon list
-   - Handles loading and error states
-   - Properly displays images from the API
+- **React Native**: Mobile app framework
+- **Expo**: Development platform
+- **Expo Router v2**: Navigation using the app directory structure
+- **TypeScript**: Type-safe code
+- **TailwindCSS/NativeWind**: Styling
+- **Axios**: API integration
 
-## Project Structure
-
-The project follows a clean, maintainable architecture with proper separation of concerns:
-
-- `src/api`: API client, endpoint definitions, and type definitions
-- `src/components`: Reusable UI components
-- `src/hooks`: Custom React hooks for data fetching and management
-- `src/navigation`: Navigation configuration
-- `src/screens`: App screens
-- `src/utils`: Utility functions for dates, styles, etc.
-
-## Getting Started
+## Setup Instructions
 
 ### Prerequisites
 
-- Node.js (>= 18)
+- Node.js (v14 or newer)
 - npm or yarn
-- React Native development environment set up
+- Expo CLI (`npm install -g expo-cli`)
+- iOS Simulator (Mac only) or Android Emulator / Physical device
 
 ### Installation
 
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/restaurant-coupons-app.git
-cd restaurant-coupons-app
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/restaurant-coupon-browser.git
+   cd restaurant-coupon-browser
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Update the API endpoint:
+   - Open `api/apiClient.ts`
+   - Update the `API_BASE_URL` constant to point to your API server
+
+4. Start the development server:
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
+
+5. Run on a simulator or device:
+   - Press `i` for iOS simulator
+   - Press `a` for Android emulator
+   - Or scan the QR code with the Expo Go app on your physical device
+
+## API Integration
+
+This app connects to a Restaurant Coupons API using the following endpoints:
+
+- `GET /api/coupons`: Fetches the list of active coupons
+- `GET /api/coupons/{id}`: Fetches detailed information about a specific coupon
+- `GET /api/images/{id}/content`: Retrieves images for coupons
+
+## Project Structure
+
+```
+app/
+  index.tsx                     # Home screen (coupon list)
+  [id].tsx                      # Detail screen for individual coupons
+  _layout.tsx                   # Root layout with navigation container
+components/
+  CouponCard.tsx                # Card component for displaying coupon in list
+  Pagination.tsx                # Component for pagination controls
+  LoadingIndicator.tsx          # Loading state component
+  ErrorDisplay.tsx              # Error state component
+services/
+  api.ts                        # API service for coupon data fetching
+  types.ts                      # TypeScript types for API responses
+utils/
+  formatDate.ts                 # Utility for formatting dates
+  constants.ts                  # App constants including API base URL
 ```
 
-2. Install dependencies
-```bash
-npm install
-# or
-yarn install
-```
+## License
 
-3. Update API base URL
-   Edit `src/api/endpoints.ts` to point to your API server.
-
-### Running the App
-
-#### iOS
-```bash
-npm run ios
-# or
-yarn ios
-```
-
-#### Android
-```bash
-npm run android
-# or
-yarn android
-```
-
-## Technical Details
-
-- **React Native**: Framework for building the mobile application
-- **TypeScript**: For type safety and better development experience
-- **React Navigation**: For handling navigation between screens
-- **TailwindCSS**: For styling components
-- **Custom Hooks**: For managing API calls and data fetching
-
-## Performance Optimizations
-
-- Optimized image loading with caching
-- FlatList with proper pagination for efficient list rendering
-- Proper handling of loading and error states
+[MIT License](LICENSE)

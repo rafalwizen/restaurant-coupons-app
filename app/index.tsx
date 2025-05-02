@@ -96,7 +96,7 @@ export default function HomeScreen() {
                 <FlatList
                     data={coupons}
                     keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item }) => <CouponCard coupon={item} imageId={item.id} />}
+                    renderItem={({ item }) => <CouponCard coupon={item} imageId={item.imageId} />}
                     contentContainerStyle={styles.listContent}
                     refreshControl={
                         <RefreshControl

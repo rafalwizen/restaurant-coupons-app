@@ -9,7 +9,7 @@ export const COLORS = {
     background: '#F7F7F7',
     text: '#333333',
     darkOverlay: 'rgba(0, 0, 0, 0.5)',
-    gradientOverlay: ['transparent', 'rgba(0, 0, 0, 0.7)'],
+    gradientOverlay: ['transparent', 'rgba(0, 0, 0, 0.7)'] as const,
 };
 
 // Pagination

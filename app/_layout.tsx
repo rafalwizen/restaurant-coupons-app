@@ -2,6 +2,7 @@ import React from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {COLORS} from "@/utils/constants";
 
 export default function RootLayout() {
   return (
@@ -13,7 +14,7 @@ export default function RootLayout() {
               options={{
                 title: 'Restaurant Coupons',
                 headerStyle: {
-                  backgroundColor: '#FF6B6B',
+                  backgroundColor: COLORS.primary,
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
@@ -26,7 +27,7 @@ export default function RootLayout() {
               options={{
                 title: 'Coupon Details',
                 headerStyle: {
-                  backgroundColor: '#FF6B6B',
+                  backgroundColor: COLORS.primary,
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
